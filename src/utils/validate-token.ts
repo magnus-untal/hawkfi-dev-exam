@@ -19,6 +19,7 @@ export async function accountExists(address: string): Promise<boolean> {
         }
         return false;
     } catch(e) {
+        console.log(e);
         return false
     }
 }

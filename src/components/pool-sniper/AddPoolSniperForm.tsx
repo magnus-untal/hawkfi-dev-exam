@@ -27,8 +27,6 @@ import { getTokenPrices } from "@/utils/validate-price";
 import { getBalance } from "@/utils/get-balance";
 
 import { generateKeyPairSigner, KeyPairSigner } from "@solana/kit";
-const signer = await generateKeyPairSigner();
-
 
 type TokenStatus = "empty" | "checking" | "valid" | "invalid";
 
@@ -117,7 +115,7 @@ function reducer(state: SniperPool, action: Action): SniperPool {
     switch(action.type) {
         case "SET_POOL":
             console.log("SETTING POOL")
-            var nextPool: Pool;
+            let nextPool: Pool;
             if (action.key === "baseTokenAddress"){
                 nextPool = {
                     ...state.pool, 
@@ -200,13 +198,11 @@ function verifyState(sniperPool: SniperPool): boolean{
 
 
 export default function AddPoolSniperForm(
-    publicKey: any
+    publicKey: {publicKey: string;}
 ) {
     const [state, dispatch] = useReducer(reducer, initialState);
 
     const [transactions, SetTransactions] = useState<Transaction[]>([]);
-
-    const [loading, SetLoading] = useState<boolean>(false);
 
     const [showSuccessModal, SetShowSuccessModal] = useState<boolean>(false);
 
@@ -265,12 +261,12 @@ export default function AddPoolSniperForm(
 
     useEffect(() => {
         const fetchInitialBalance = async() => {
-            const balance = await getBalance(publicKey);
+            const balance = await getBalance(publicKey.publicKey);
             dispatch({type: "SET_WALLET_BALANCE", value: balance});
         } 
 
         fetchInitialBalance();
-    }, [])
+    }, [publicKey])
 
     //compute bin amount
     useEffect(() => {
@@ -328,6 +324,7 @@ export default function AddPoolSniperForm(
                 }
                 catch (e){
                     dispatch({type: "INVALID_TOKEN_STATUS"});
+                    console.log(e);
                 }
             })();
 
@@ -358,11 +355,6 @@ export default function AddPoolSniperForm(
             return;
         }
 
-
-
-        //submit
-        SetLoading(true);
-
         await new Promise((resolve) => setTimeout(resolve, 1500));
 
         const poolKeyPair = await generateKeyPairSigner();
@@ -379,8 +371,6 @@ export default function AddPoolSniperForm(
         SetTransactions((tx) => [...tx, newTx])
 
         console.log(transactions);
-
-        SetLoading(false);
 
         //create toast on success
     }

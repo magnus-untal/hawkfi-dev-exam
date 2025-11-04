@@ -4,10 +4,9 @@ const RPC: string = process.env.NEXT_PUBLIC_MAINNET_RPC ? process.env.NEXT_PUBLI
 
 const rpcLink = createSolanaRpc(RPC);
 
-export async function getBalance(publicKey: any): Promise<number>{
-    console.log(publicKey)
+export async function getBalance(publicKey: string): Promise<number>{
     const tokenAccountAddress = address(
-        publicKey.publicKey
+        publicKey
     );
 
     const balance = await rpcLink.getTokenAccountBalance(tokenAccountAddress).send();

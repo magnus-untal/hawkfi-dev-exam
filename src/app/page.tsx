@@ -65,7 +65,7 @@ export default function Home() {
         }}
       >
         <Box sx={{ textAlign: "center" }}>
-          {connected && (
+          {(connected && publicKey) && (
             <AddPoolSniperForm 
               publicKey={publicKey?.toString()}
             />
