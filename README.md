@@ -25,24 +25,24 @@ Please refer to the Notion page provided via email for guidelines and tasks. Bes
 Hey HawkFi evaluating team! My name is Magnus. I know this application isn't exactly perfect -> some flaws in UI and missing warnings when trying to input wrong values, but I tried to ensure that these values would not go through at all in the first place. 
 
 ## Things I've done:
-New Pool Function
-New Position Function
-Collecting symbols and images via external API for display
-Displaying transaction history
+- New Pool Function
+- New Position Function
+- Collecting symbols and images via external API for display
+- Displaying transaction history
 
 ## Things that I found tricky:
-Connecting my wallet and displaying the balance always gave me an error "Account not ta token wallet" via the RPC and SOL devkit -> kind of weird
-Finding a way to display the transaction history since there was no clear design allotted
-Mental gap between the initial understanding that the base token address was the same as the mint of the token
+- Connecting my wallet and displaying the balance always gave me an error "Account not ta token wallet" via the RPC and SOL devkit -> kind of weird
+- Finding a way to display the transaction history since there was no clear design allotted
+- Mental gap between the initial understanding that the base token address was the same as the mint of the token
 
 ## Things I used AI for:
-Bridging knowledge gaps for Web3 and understanding tokens
-Getting ahead and letting it explain the documentation to me as a crash course on what to do
-Understanding how to compute for bin steps and drafting a formula (I could be wrong with the computation)
-Understanding how MUI works and what the different components do
-Developed baseline box formation for the pool segment of the form -> used as a guide to create other parts of the code
-Extra validation steps for the UI to turn red if input is wrong
-General styling and positioning of UI components
+- Bridging knowledge gaps for Web3 and understanding tokens
+- Getting ahead and letting it explain the documentation to me as a crash course on what to do
+- Understanding how to compute for bin steps and drafting a formula (I could be wrong with the computation)
+- Understanding how MUI works and what the different components do
+- Developed baseline box formation for the pool segment of the form -> used as a guide to create other parts of the code
+- Extra validation steps for the UI to turn red if input is wrong
+- General styling and positioning of UI components
 
 # Thanks!
 
