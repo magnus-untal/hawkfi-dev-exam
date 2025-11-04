@@ -22,7 +22,7 @@ Please refer to the Notion page provided via email for guidelines and tasks. Bes
 
 # GREETINGS!
 
-Hey HawkFi evaluating team! My name is Magnus. I know this application isn't exactly perfect -> some flaws in UI and missing warnings when trying to input wrong values, but I tried to ensure that these values would not go through at all in the first place. 
+Hey HawkSight evaluating team! My name is Magnus. I know this application isn't exactly perfect -> some flaws in UI and missing warnings when trying to input wrong values, but I tried to ensure that these values would not go through at all in the first place. 
 
 ## Things I've done:
 - New Pool Function
