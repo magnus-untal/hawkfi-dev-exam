@@ -1,6 +1,6 @@
 export const BASIS_POINT_MAX = 10000;
 // Mock token data - in a real app, this would come from an API
-const MOCK_TOKENS = [
+export const MOCK_TOKENS = [
   {
     address: "So11111111111111111111111111111111111111112",
     symbol: "SOL",

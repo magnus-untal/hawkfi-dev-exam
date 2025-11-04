@@ -4,6 +4,8 @@ import { Box, Typography } from "@mui/material";
 import { useWallet } from "@jup-ag/wallet-adapter";
 import { WalletButton } from "@/components/solana/wallet-button";
 
+import AddPoolSniperForm from "@/components/pool-sniper/AddPoolSniperForm"
+
 export default function Home() {
   const { connected, publicKey } = useWallet();
 
@@ -63,32 +65,11 @@ export default function Home() {
         }}
       >
         <Box sx={{ textAlign: "center" }}>
-          <Typography
-            variant="h1"
-            component="h1"
-            sx={{
-              fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4.5rem" },
-              fontWeight: "bold",
-              color: "#46EB80",
-              textShadow: "2px 2px 4px rgba(0,0,0,0.1)",
-              mb: 3,
-            }}
-          >
-            Let the exam begin. Good luck!
-          </Typography>
-
-          <Typography
-            variant="h6"
-            sx={{
-              color: "rgba(255, 255, 255, 0.8)",
-              mb: 4,
-            }}
-          >
-            {connected
-              ? "Wallet connected! You're ready to start building on Solana."
-              : "Connect your wallet to get started with the Solana development exam."}
-          </Typography>
-
+          {connected && (
+            <AddPoolSniperForm 
+              publicKey={publicKey?.toString()}
+            />
+          )}
           {!connected && (
             <Box sx={{ mt: 3 }}>
               <WalletButton />
