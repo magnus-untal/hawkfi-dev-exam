@@ -276,7 +276,7 @@ export default function AddPoolSniperForm(
     useEffect(() => {
         if(state.position.minPrice != 0 && state.position.maxPrice != 0 && state.pool.binSteps != 0){
             const binAmount = Math.log(state.position.maxPrice/state.position.minPrice)/Math.log(1 + state.pool.binSteps/10000)
-            dispatch({type: "SET_POSITION", key: "binAmount", value: binAmount})
+            dispatch({type: "SET_POSITION", key: "binAmount", value: Math.ceil(binAmount)})
         }
         else{
             dispatch({type: "SET_POSITION", key: "binAmount", value: 0})
